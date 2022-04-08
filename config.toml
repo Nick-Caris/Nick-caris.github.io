@@ -1,7 +1,7 @@
 [Params]
 # Note: This is for the meta description, which is different from the "description" displayed in the terminal.
 description = "40K custom forge world"
-baseURL = "https://nick-caris.github.io/"
+baseURL = "https://Nick-caris.github.io/"
 
 [Params.Terminal]
 # Note: color schema
