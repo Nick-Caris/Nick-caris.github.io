@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-    <title>Posts</title>
+    <title>Colours</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="" />
@@ -544,53 +544,69 @@ body{background:#1B1D1E}body #terminal{color:%!s(<nil>)}body #user{color:%!s(<ni
 
 
 </head><body><div id="content">
-        <main id="main">
-          <h1>Posts</h1>
-          <ul>
-            
-            <li>
-              <h2>
-                <a href="/post/geography/">
-                
-                  Geography.txt
-                  
-                </a>
-              </h2>
-            </li>
-            
-            <li>
-              <h2>
-                <a href="/post/government/">
-                
-                  Organizational structure.txt
-                  
-                </a>
-              </h2>
-            </li>
-            
-            <li>
-              <h2>
-                <a href="/post/colours/">
-                
-                  Colours.txt
-                  
-                </a>
-              </h2>
-            </li>
-            
-            <li>
-              <h2>
-                <a href="/post/history/">
-                
-                  History.txt
-                  
-                </a>
-              </h2>
-            </li>
-            
-          </ul>
-        </main>
     
+    
+    
+
+
+    <span id="activity-title"></span> <br>
+ <span id="activity-content"></span> <br>
+
+<script type="text/javascript">
+    async function typewriter(text, elementId, waitAfter) {
+        var n = 0,
+            isTag = false
+        addText = "";
+        const el = document.getElementById(elementId);
+
+        const wait = () => new Promise(r => setTimeout(r, waitAfter));
+        const nowait = () => new Promise(r => r());
+
+        const render = () => el.innerHTML = (text.slice(0, n + 1) + addText);
+
+        const cursor = document.createElement('span');
+        cursor.id = "blink";
+
+        el.style.setProperty("--cursor-visibility", "visible");
+        while (n < text.length) {
+            if (text.charAt(n + 1) === "<") isTag = true;
+            if (text.charAt(n + 1) === ">") isTag = false;
+
+            if (isTag) {
+                n++;
+                continue;
+            }
+
+            requestAnimationFrame(render);
+
+            if (waitAfter === 0) {
+                await nowait();
+            } else {
+                await wait();
+            }
+
+            n++;
+        }
+        el.style.setProperty("--cursor-visibility", "collapse");
+    }
+
+    function parseDelay(d) {
+        const parsed = parseInt(d, 10);
+        if (isNaN(parsed)) return 0;
+        return parsed;
+    }
+
+    const titleDelay = parseDelay("0"),
+        contentDelay = parseDelay("0");
+    const typeeffetct = async () => {
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003ch1 id=\u0027title\u0027\u003eColours\u003c\/h1\u003e\u003c\/span\u003e", "activity-title", titleDelay);
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003cp\u003eDeep in the archives of the forge world there are references to ancient colour names. These colours are holy and shall\nenver be renamed.\nHere are some data fragments of the archive:\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003ePiece\u003c\/th\u003e\n\u003cth style=\u0022text-align:center\u0022\u003eColour\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eCloak\u003c\/td\u003e\n\u003ctd style=\u0022text-align:center\u0022\u003eBase Phoenician purple\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eMetal\u003c\/td\u003e\n\u003ctd style=\u0022text-align:center\u0022\u003eLeadbelchers (or special runefang steel)\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWood\u003c\/td\u003e\n\u003ctd style=\u0022text-align:center\u0022\u003eMornfang brown\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ebronze\u003c\/td\u003e\n\u003ctd style=\u0022text-align:center\u0022\u003eweapon bronze\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ePaper\u003c\/td\u003e\n\u003ctd style=\u0022text-align:center\u0022\u003eMorghast bone \u002b corax white; agrax earthshade\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eenergy\u003c\/td\u003e\n\u003ctd style=\u0022text-align:center\u0022\u003egoblin green (game color)\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ebleu energy\u003c\/td\u003e\n\u003ctd style=\u0022text-align:center\u0022\u003eelectric blue\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\u003c\/span\u003e", "activity-content", contentDelay);
+        return;
+    }
+
+    typeeffetct()
+</script>
+
         </div>
         
         <span class="navFull">
@@ -598,15 +614,13 @@ body{background:#1B1D1E}body #terminal{color:%!s(<nil>)}body #user{color:%!s(<ni
     
     
 
-     
-        
-        
+    
         
 
 <span>
     <a href="/">Home</a>
     <span>&#8192;|&#8192;</span>
-    <a href="./.."></a>
+    <a href="./..">/post/</a>
 </span>
 
     
